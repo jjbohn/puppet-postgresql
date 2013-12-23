@@ -11,7 +11,7 @@ class postgresql::params {
       $port       = 15432
 
       $package    = 'boxen/brews/postgresql'
-      $version    = '9.2.4-boxen2'
+      $version    = '9.3.2-boxen'
 
       $service    = 'dev.postgresql'
 
@@ -24,10 +24,10 @@ class postgresql::params {
       $logdir     = '/var/log/postgresql'
       $port       = 5432
 
-      $package    = 'postgresql-server-9.1'
+      $package    = 'postgresql-server-9.3'
       $version    = installed
 
-      $service    = 'postgresql-9.1'
+      $service    = 'postgresql-9.3'
 
       $user       = 'postgresql'
     }

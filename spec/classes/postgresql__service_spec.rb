@@ -18,7 +18,7 @@ describe "postgresql::service" do
       should_not contain_service("com.boxen.postgresql")
 
       should contain_exec("init-postgresql-db").with_creates("/var/lib/postgresql/PG_VERSION")
-      should contain_service("postgresql-9.1").with_ensure(:running)
+      should contain_service("postgresql-9.3").with_ensure(:running)
       should contain_exec("wait-for-postgresql").with_unless("nc -z 127.0.0.1 5432")
     end
   end

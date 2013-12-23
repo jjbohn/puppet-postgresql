@@ -16,6 +16,7 @@ define postgresql::db(
       "-O ${postgresql::user}",
       $name
     ], ' '),
-    unless  => "psql -aA -p${postgresql::port} -t -l | cut -d \\| -f 1 | grep -w '${name}'"
+    unless  => "psql -aA -p${postgresql::port} -t -l | cut -d \\| -f 1 | grep -w '${name}'",
+    require => 'Exec[wait-for-postgresql]'
   }
 }

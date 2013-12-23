@@ -15,7 +15,7 @@ describe "postgresql::package" do
     it do
       should_not contain_homebrew__formula("postgresql")
 
-      should contain_package("postgresql-server-9.1")
+      should contain_package("postgresql-server-9.3")
     end
   end
 end
