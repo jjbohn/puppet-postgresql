@@ -18,6 +18,11 @@ class Postgresql < Formula
     ]
   end
 
+  # Fix uuid-ossp build issues: http://archives.postgresql.org/pgsql-general/2012-07/msg00654.php
+  def patches
+    DATA
+  end
+
   skip_clean :all
 
   fails_with :clang do
@@ -94,3 +99,16 @@ class Postgresql < Formula
     end
   end
 end
+
+__END__
+--- a/contrib/uuid-ossp/uuid-ossp.c
++++ b/contrib/uuid-ossp/uuid-ossp.c
+@@ -9,6 +9,8 @@
+  *-------------------------------------------------------------------------
+  */
+
++#define _XOPEN_SOURCE
++
+ #include "postgres.h"
+ #include "fmgr.h"
+ #include "utils/builtins.h"
