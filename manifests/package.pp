@@ -11,10 +11,6 @@ class postgresql::package(
     default => absent,
   }
 
-  if $::operatingsystem == 'Darwin' {
-    homebrew::formula { 'postgresql': }
-  }
-
   package { $package:
     ensure => $package_ensure
   }
